@@ -23,7 +23,7 @@ def pipe(preproc_train_data, preproc_test_data, encoded_train_labels, encoded_te
     predictions = SVM(train_ngram, encoded_train_labels,test_ngram)
 
 
-    f1, precision, recall, accuracy = get_metrics(predictions, encoded_test_label)
+    f1, precision, recall, accuracy = get_metrics(predictions, encoded_test_labels)
 
     dataset = pd.DataFrame({'F1': [f1], 'Precision': [precision], 'Recall' : [recall], 'Accuracy' : [accuracy]})
 
