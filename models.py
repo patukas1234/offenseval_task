@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from utils import *
+
 from sklearn.svm import SVC
 from sklearn.preprocessing import MaxAbsScaler
 from sklearn.feature_extraction.text import CountVectorizer
@@ -9,6 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
 
+#from utils import *
 #from keras.models import Sequential
 #from keras.layers import Dense
 #from keras.wrappers.scikit_learn import KerasClassifier
@@ -17,11 +18,12 @@ from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_sc
 
 
 def pipe(preproc_train_data, preproc_test_data, encoded_train_labels, encoded_test_labels, n_range):
+
+    
     
     train_ngram, test_ngram = get_ngrams(n_range, preproc_train_data, preproc_test_data)
 
-    predictions = SVM(train_ngram, encoded_train_labels,test_ngram)
-
+    predictions = SVM(train_ngram, encoded_train_labels, test_ngram)
 
     f1, precision, recall, accuracy = get_metrics(predictions, encoded_test_labels)
 
